@@ -7,15 +7,20 @@ signature:
 	enum domain Position = {TOP_LEFT | TOP_MID | TOP_RIGHT | MID_LEFT | MID_MID | MID_RIGHT | BTM_LEFT | BTM_MID | BTM_RIGHT}
 	enum domain Player = {PLAYER_X | PLAYER_O | NONE}
 	
+	// turn rappresenta il giocatore che deve fare la mossa
 	controlled turn: Player
 	controlled winner: Player
+	
+	// Rappresenta quale giocatore ha occupato quale posizione
 	controlled player: Position -> Player
+	// Contatore delle mosse
 	controlled moves: Integer
 	
 	monitored choice: Position
-	out lastComputerChoice: Position
+	out lastComputerChoice: Position // Usata solo per vedere la scelta del computer
 
 definitions:
+	// Questa regola deve anche aumentare il numero di mosse
 	rule r_updateBoard($pos in Position, $p in Player) =
 		par
 			player($pos) := $p
@@ -25,6 +30,7 @@ definitions:
 	rule r_updateBoardUser($pos in Position) =
 		r_updateBoard[$pos, PLAYER_X]
 	
+	// Il computer sceglie a caso una posizione libera
 	rule r_updateBoardComputer =
 		choose $p in Position with player($p) = NONE do
 			par
@@ -45,12 +51,14 @@ definitions:
 			r_updateBoardComputer[]
 			turn := PLAYER_X
 		endpar
-		
+	
 	rule r_checkForWinnerIn($a in Position, $b in Position, $c in Position) =
 		if player($a) = player($b) and player($b) = player($c) then
 			winner := player($a)
 		endif
-		
+
+	// Questa regola deve avere seq e non par, perché
+	// r_checkForWinner cambia il contenuto di winner
 	macro rule r_checkWinner =
 		seq
 			r_checkForWinnerIn[TOP_LEFT, TOP_MID, TOP_RIGHT]
@@ -66,6 +74,7 @@ definitions:
 		endseq
 
 	main rule r_Main =
+		// Il gioco si ferma se c'è un vincitore o se tutte le posizioni sono occupate
 		if winner = NONE and moves < 9 then
 			seq
 				if turn = PLAYER_X then
