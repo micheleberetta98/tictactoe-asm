@@ -52,7 +52,7 @@ definitions:
 		endif
 		
 	macro rule r_checkWinner =
-		par
+		seq
 			r_checkForWinnerIn[TOP_LEFT, TOP_MID, TOP_RIGHT]
 			r_checkForWinnerIn[MID_LEFT, MID_MID, MID_RIGHT]
 			r_checkForWinnerIn[BTM_LEFT, BTM_MID, BTM_RIGHT]
@@ -63,7 +63,7 @@ definitions:
 			
 			r_checkForWinnerIn[TOP_LEFT,  MID_MID, BTM_RIGHT]
 			r_checkForWinnerIn[TOP_RIGHT, MID_MID, BTM_LEFT]
-		endpar
+		endseq
 
 	main rule r_Main =
 		if winner = NONE and moves < 9 then
