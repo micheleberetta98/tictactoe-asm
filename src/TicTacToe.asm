@@ -10,13 +10,17 @@ signature:
 	controlled turn: Player
 	controlled winner: Player
 	controlled player: Position -> Player
+	controlled moves: Integer
 	
 	monitored choice: Position
 	controlled lastComputerChoice: Position
 
 definitions:
 	rule r_updateBoard($pos in Position, $p in Player) =
-		player($pos) := $p
+		par
+			player($pos) := $p
+			moves := moves + 1
+		endpar
 	
 	rule r_updateBoardUser($pos in Position) =
 		r_updateBoard[$pos, PLAYER_X]
@@ -65,7 +69,7 @@ definitions:
 		endpar
 
 	main rule r_Main =
-		if winner = NONE then
+		if winner = NONE and moves < 9 then
 			seq
 				if turn = PLAYER_X then
 					r_turnUser[choice]
@@ -79,4 +83,5 @@ definitions:
 default init s0:
 	function turn = PLAYER_X
 	function winner = NONE
+	function moves = 0
 	function player($p in Position) = NONE

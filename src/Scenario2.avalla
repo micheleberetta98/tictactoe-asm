@@ -1,0 +1,88 @@
+scenario SCENARIO_2
+load TicTacToe.asm
+check moves = 0;
+check winner = NONE;
+set choice := BTM_LEFT;
+step
+check moves = 1;
+check turn = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check winner = NONE;
+set choice := BTM_LEFT;
+step
+check moves = 2;
+check turn = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = BTM_MID;
+check player(BTM_MID) = PLAYER_O;
+check winner = NONE;
+set choice := TOP_LEFT;
+step
+check moves = 3;
+check turn = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = BTM_MID;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check winner = NONE;
+set choice := TOP_LEFT;
+step
+check moves = 4;
+check turn = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = BTM_RIGHT;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check player(BTM_RIGHT) = PLAYER_O;
+check winner = NONE;
+set choice := TOP_RIGHT;
+step
+check moves = 5;
+check turn = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = BTM_RIGHT;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check player(BTM_RIGHT) = PLAYER_O;
+check player(TOP_RIGHT) = PLAYER_X;
+check winner = NONE;
+set choice := TOP_RIGHT;
+step
+check moves = 6;
+check turn = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = TOP_MID;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check player(BTM_RIGHT) = PLAYER_O;
+check player(TOP_RIGHT) = PLAYER_X;
+check player(TOP_MID) = PLAYER_O;
+check winner = NONE;
+set choice := MID_RIGHT;
+step
+check moves = 7;
+check turn = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = TOP_MID;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check player(BTM_RIGHT) = PLAYER_O;
+check player(TOP_RIGHT) = PLAYER_X;
+check player(TOP_MID) = PLAYER_O;
+check player(MID_RIGHT) = PLAYER_X;
+check winner = NONE;
+set choice := MID_RIGHT;
+step
+check moves = 8;
+check turn = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
+check lastComputerChoice = MID_MID;
+check player(BTM_MID) = PLAYER_O;
+check player(TOP_LEFT) = PLAYER_X;
+check player(BTM_RIGHT) = PLAYER_O;
+check player(TOP_RIGHT) = PLAYER_X;
+check player(TOP_MID) = PLAYER_O;
+check player(MID_RIGHT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
+check winner = PLAYER_O;
+step
