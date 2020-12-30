@@ -46,9 +46,6 @@ definitions:
 			turn := PLAYER_X
 		endpar
 		
-	rule r_turn =
-		skip
-	
 	rule r_checkForWinnerIn($a in Position, $b in Position, $c in Position) =
 		if player($a) = player($b) and player($b) = player($c) then
 			winner := player($a)
