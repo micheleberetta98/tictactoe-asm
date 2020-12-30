@@ -54,7 +54,7 @@ definitions:
 			winner := player($a)
 		endif
 		
-	rule r_checkWinner =
+	macro rule r_checkWinner =
 		par
 			r_checkForWinnerIn[TOP_LEFT, TOP_MID, TOP_RIGHT]
 			r_checkForWinnerIn[MID_LEFT, MID_MID, MID_RIGHT]
