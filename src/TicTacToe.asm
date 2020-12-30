@@ -13,7 +13,7 @@ signature:
 	controlled moves: Integer
 	
 	monitored choice: Position
-	controlled lastComputerChoice: Position
+	out lastComputerChoice: Position
 
 definitions:
 	rule r_updateBoard($pos in Position, $p in Player) =
