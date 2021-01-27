@@ -1,182 +1,69 @@
-scenario SCENARIO_1
-load TicTacToe.asm
+scenario Scenario1
+load TicTacToeTesting.asm
 check moves = 0;
 check winner = NONE;
-set choice := TOP_LEFT;
+set choice := BTM_LEFT;
 step
 check moves = 1;
 check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
 check turn = PLAYER_O;
-set choice := TOP_LEFT;
+check player(BTM_LEFT) = PLAYER_X;
+set choice := BTM_LEFT;
+set computerChoice := MID_MID;
 step
 check moves = 2;
 check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
 check turn = PLAYER_X;
-check lastComputerChoice = MID_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-set choice := TOP_LEFT;
-step
-check moves = 2;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-set choice := MID_LEFT;
-step
-check moves = 2;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-set choice := TOP_RIGHT;
+check player(BTM_LEFT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
+set choice := BTM_MID;
+set computerChoice := MID_MID;
 step
 check moves = 3;
 check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
 check turn = PLAYER_O;
-check lastComputerChoice = MID_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-set choice := TOP_RIGHT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-set choice := TOP_LEFT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-set choice := MID_LEFT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-set choice := MID_RIGHT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-set choice := MID_LEFT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-set choice := MID_LEFT;
-step
-check moves = 4;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
+check player(BTM_MID) = PLAYER_X;
 set choice := BTM_MID;
+set computerChoice := BTM_MID;
+step
+check moves = 3;
+check winner = NONE;
+check turn = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
+check player(BTM_MID) = PLAYER_X;
+set choice := BTM_MID;
+set computerChoice := MID_RIGHT;
+step
+check moves = 4;
+check winner = NONE;
+check turn = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
+check player(BTM_MID) = PLAYER_X;
+check player(MID_RIGHT) = PLAYER_O;
+set choice := BTM_RIGHT;
+set computerChoice := MID_RIGHT;
 step
 check moves = 5;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
+check winner = PLAYER_X;
 check turn = PLAYER_O;
-check lastComputerChoice = MID_RIGHT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
+check player(BTM_LEFT) = PLAYER_X;
+check player(MID_MID) = PLAYER_O;
 check player(BTM_MID) = PLAYER_X;
-set choice := BTM_MID;
-step
-check moves = 6;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = BTM_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
 check player(MID_RIGHT) = PLAYER_O;
-check player(BTM_MID) = PLAYER_X;
-check player(BTM_LEFT) = PLAYER_O;
+check player(BTM_RIGHT) = PLAYER_X;
 set choice := BTM_RIGHT;
+set computerChoice := MID_RIGHT;
 step
-check moves = 7;
-check winner = NONE;
-check player(TOP_LEFT) = PLAYER_X;
+check moves = 5;
+check winner = PLAYER_X;
 check turn = PLAYER_O;
-check lastComputerChoice = BTM_LEFT;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-check player(BTM_MID) = PLAYER_X;
-check player(BTM_LEFT) = PLAYER_O;
-check player(BTM_RIGHT) = PLAYER_X;
-set choice := BTM_RIGHT;
-step
-check moves = 8;
-check winner = PLAYER_O;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_MID;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
-check player(BTM_MID) = PLAYER_X;
-check player(BTM_LEFT) = PLAYER_O;
-check player(BTM_RIGHT) = PLAYER_X;
+check player(BTM_LEFT) = PLAYER_X;
 check player(MID_MID) = PLAYER_O;
-set choice := BTM_RIGHT;
-step
-check moves = 8;
-check winner = PLAYER_O;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_MID;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
-check player(MID_RIGHT) = PLAYER_O;
 check player(BTM_MID) = PLAYER_X;
-check player(BTM_LEFT) = PLAYER_O;
-check player(BTM_RIGHT) = PLAYER_X;
-check player(MID_MID) = PLAYER_O;
-set choice := BTM_RIGHT;
-step
-check moves = 8;
-check winner = PLAYER_O;
-check player(TOP_LEFT) = PLAYER_X;
-check turn = PLAYER_X;
-check lastComputerChoice = MID_MID;
-check player(MID_LEFT) = PLAYER_O;
-check player(TOP_RIGHT) = PLAYER_X;
 check player(MID_RIGHT) = PLAYER_O;
-check player(BTM_MID) = PLAYER_X;
-check player(BTM_LEFT) = PLAYER_O;
 check player(BTM_RIGHT) = PLAYER_X;
-check player(MID_MID) = PLAYER_O;
 step
