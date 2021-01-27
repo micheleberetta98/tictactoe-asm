@@ -1,4 +1,4 @@
-asm TicTacToe
+asm TicTacToeTesting
 
 
 import StandardLibrary
@@ -48,7 +48,7 @@ definitions:
         r_updateBoardComputer[$pos]
         turn := PLAYER_X
       endpar
-    end if
+    endif
 	
 	rule r_checkForWinnerIn($a in Position, $b in Position, $c in Position) =
 		if player($a) = player($b) and player($b) = player($c) then
